@@ -12,7 +12,7 @@ com/week1/Planet.java
  com.week1.Planet
 com/week1/CrewMember.java
  com.week1.CrewMember
-com/week3/EndPoints.java
- com.week3.EndPoints
 com/week3/SolarSystemEndPoints.java
  com.week3.SolarSystemEndPoints
+com/week3/EndPoints.java
+ com.week3.EndPoints

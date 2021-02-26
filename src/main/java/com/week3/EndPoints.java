@@ -5,6 +5,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class EndPoints {
@@ -60,11 +61,12 @@ public class EndPoints {
         //return "";
     }
 
+    //https://dzone.com/articles/how-to-use-cookies-in-spring-boot
     @PostMapping("/spaceship/current")
-    public String spaceshipsetcurrent(@RequestBody MultiValueMap<String, String> formBody){
+    public String spaceshipsetcurrent(@RequestBody MultiValueMap<String, String> formBody, HttpServletResponse response){
         if(!formBody.get("spaceship").isEmpty()) {
             Cookie shipcookie = new Cookie("current", formBody.get("spaceship").get(0));
-            //todo return the cookie somehow
+            response.addCookie(shipcookie);
             return "Spaceship set to "+formBody.get("spaceship").get(0);
         }
         else{
