@@ -93,7 +93,7 @@ public class SpaceShip {
         tempStr+="--end of ship log";
         return tempStr;
     }
-    public boolean equals(com.galvanize.SpaceShip comp){
+    public boolean equals(SpaceShip comp){
         //boolean isequals = true;
         if(!this.name.equals(comp.name)) return false;
         //if(this.crewList.equals(comp.crewList)) return false;
@@ -104,11 +104,11 @@ public class SpaceShip {
 
         return true;
     }
-    public com.galvanize.SpaceShip clone(){
+    public SpaceShip clone(){
         ArrayList<CrewMember> ncl = new ArrayList<>();
         for(CrewMember pawn : crewList)
             ncl.add(pawn.clone());
-        com.galvanize.SpaceShip nss = new com.galvanize.SpaceShip(name, ncl);
+        SpaceShip nss = new SpaceShip(name, ncl);
         return nss;
     }
 

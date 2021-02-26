@@ -17,14 +17,14 @@ public class CrewMember {
     public void changeMorale(float imorale){morale+=imorale;}
     //Overwrite-----------
     public String toString(){return (""+name+" : "+morale);}
-    public boolean equals(com.galvanize.CrewMember comp){
+    public boolean equals( CrewMember comp){
         if(this.morale==comp.morale)
             if(this.name.equals(comp.name))
                 return true;
         return false;
     }
-    public com.galvanize.CrewMember clone(){
-        com.galvanize.CrewMember ncm = new com.galvanize.CrewMember(name);
+    public  CrewMember clone(){
+         CrewMember ncm = new  CrewMember(name);
         return ncm;
     }
 }

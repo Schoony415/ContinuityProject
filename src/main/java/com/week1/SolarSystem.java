@@ -87,7 +87,7 @@ public class SolarSystem {
         tempStr+="--end of SS log";
         return tempStr;
     }
-    public boolean equals(com.galvanize.SolarSystem comp){
+    public boolean equals(SolarSystem comp){
         if(!this.getName().equals(comp.getName())) return false;
         //!need an elegant way to pass spaceship back and forth
         if(!this.myLittleShip.equals(comp.getSpaceShip())) return false;
@@ -98,11 +98,11 @@ public class SolarSystem {
         }
         return true;
     }
-    public com.galvanize.SolarSystem clone(){
+    public SolarSystem clone(){
         ArrayList<Planet> npl = new ArrayList<>();
         for(Planet rock : sphere)
             npl.add(rock.clone());
-        com.galvanize.SolarSystem nss = new com.galvanize.SolarSystem(solarName, myLittleShip.clone(), npl);
+        SolarSystem nss = new SolarSystem(solarName, myLittleShip.clone(), npl);
         return nss;
     }
 

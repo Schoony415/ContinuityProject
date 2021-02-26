@@ -1,0 +1,14 @@
+com/week3/ApplicationTests.java
+ com.week3.ApplicationTests
+com/week1/CrewMemberTest.java
+ com.week1.CrewMemberTest
+com/week1/SpaceShipTest.java
+ com.week1.SpaceShipTest
+com/week1/ApplicationTest.java
+ com.week1.ApplicationTest
+com/week1/SolarSystemTest.java
+ com.week1.SolarSystemTest
+com/week1/PlanetTest.java
+ com.week1.PlanetTest
+com/week3/EndPointsTest.java
+ com.week3.EndPointsTest
