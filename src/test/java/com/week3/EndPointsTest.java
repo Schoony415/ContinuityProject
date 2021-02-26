@@ -11,7 +11,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
+//@SpringBootTest
 @WebMvcTest(EndPoints.class)
 public class EndPointsTest {
 
@@ -32,6 +32,16 @@ public class EndPointsTest {
                         .string("website worked!")) // string that should appear in page
         ;
     }
+
+//You must handle the following endpoints :
+//- A GET request to the `/crewmember` endpoint with optional request parameters
+    
+//- A GET request to the `/crewmember/{crewmemberId}` endpoint
+
+//- A POST request to the `/crewmember` endpoint which accepts form data in the request body
+
+//- A GET request to the `/spaceship/current` which accesses the cookies to retrieve the current spaceship
+
 
 
 
