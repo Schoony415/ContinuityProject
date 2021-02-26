@@ -391,7 +391,7 @@ public class EndPointsTest {
                 .params(bodymap)
                 .cookie(myCooky)
         ;
-    
+
         this.mvc.perform(request1)
                 .andExpect(status().isOk()) // 200 class, things be good
                 .andExpect(content()

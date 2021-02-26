@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.week1.CrewMemberTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-02-26T21:21:52" hostname="RGCAFCS82020" time="0.005">
+  <properties/>
+  <testcase name="createDefaultCrewMember()" classname="com.week1.CrewMemberTest" time="0.001"/>
+  <testcase name="dropMoral()" classname="com.week1.CrewMemberTest" time="0.001"/>
+  <testcase name="raiseMoral()" classname="com.week1.CrewMemberTest" time="0.001"/>
+  <testcase name="createCrewMember()" classname="com.week1.CrewMemberTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

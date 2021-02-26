@@ -14,3 +14,5 @@ com/week1/CrewMember.java
  com.week1.CrewMember
 com/week3/EndPoints.java
  com.week3.EndPoints
+com/week3/SolarSystemEndPoints.java
+ com.week3.SolarSystemEndPoints
