@@ -129,6 +129,7 @@ public class SSEndPointsTest {
 
     @Test
     public void testReadOutEndPoint1() throws Exception{
+        //this fails because the class holds data from the tests but the tests don't hold data between each other
         SolarSystem basesolarsystem = new SolarSystem();
 
         if(testsystemmap==null) testsystemmap=new HashMap<>();
