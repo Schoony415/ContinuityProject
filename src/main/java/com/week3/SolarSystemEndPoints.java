@@ -32,11 +32,14 @@ public class SolarSystemEndPoints {
                         //if(myBody.containsKey("system")){
 
                         //}else{//spaceship
-                        mastersolarlist.put(myBody.get("SystemName").get(0), new SolarSystem(myBody.get("SystemName").get(0), new SpaceShip(myBody.get("spaceship").get(0))));
+                        mastersolarlist.put(myBody.get("SystemName").get(0),
+                                new SolarSystem(myBody.get("SystemName").get(0),
+                                new SpaceShip(myBody.get("spaceship").get(0))));
                         return mastersolarlist.get(myBody.get("SystemName").get(0)).toString();
                         //}
                     } else {//system name
-                        mastersolarlist.put(myBody.get("SystemName").get(0), new SolarSystem(myBody.get("SystemName").get(0)));
+                        mastersolarlist.put(myBody.get("SystemName").get(0),
+                                new SolarSystem(myBody.get("SystemName").get(0)));
                         return mastersolarlist.get(myBody.get("SystemName").get(0)).toString();
                     }
                 } else {//no name
