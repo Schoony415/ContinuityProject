@@ -8,6 +8,7 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -41,7 +42,7 @@ public class CrewMemberController {
 //Update	PATCH	/employees/{id}	.save       "update" route	Updates attributes of the employee
     @PatchMapping("/{id}")
     @JsonView(Views.Detailed.class)
-    public CrewMember updatecm(@PathVariable long id, @RequestBody HashMap<String,String> input){// @RequestBody CrewMember input){
+    public CrewMember updatecm(@PathVariable long id, @RequestBody Map<String,String> input){// @RequestBody CrewMember input){
         try{
         if(this.repository.existsById(id)){
             CrewMember temp = this.repository.findById(id).get();

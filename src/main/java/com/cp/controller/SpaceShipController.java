@@ -12,6 +12,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -46,7 +47,7 @@ public class SpaceShipController {
     //Update	PATCH	/employees/{id}	.save       "update" route	Updates attributes of the employee
     @PatchMapping("/{id}")
     @JsonView(Views.Detailed.class)
-    public SpaceShip updateship(@PathVariable long id, @RequestBody HashMap<String,String> input){//@RequestBody SpaceShip input){
+    public SpaceShip updateship(@PathVariable long id, @RequestBody Map<String,String> input){//@RequestBody SpaceShip input){
         try {
             if (this.repository.existsById(id)) {
                 SpaceShip temp = this.repository.findById(id).get();
@@ -117,7 +118,7 @@ public class SpaceShipController {
     public Iterable<SpaceShip> getalln(){
         return this.repository.findAll();
     }
-    
+
     //direct copy from endpoints
 
     @GetMapping("/current")
