@@ -1,0 +1,57 @@
+
+    
+    @Autowired
+    MockMvc mvc;
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    
+    //example class with lots of stolen code
+    @Test
+    public void testExample () throws Exception{
+        String addressin =
+                "/s";
+
+        String addressvalues=
+                "/little/lot";
+
+        String querys =
+                "?key=value&key2=value";
+
+        //just a body text
+        String bodytext =
+                "this is my pretty body";
+        //for building a map that imitates a form
+        //multivalue class is a DataType mapped to a list of DataType, so you must treat values as list items
+        MultiValueMap<String,String> bodymap = new LinkedMultiValueMap<>();
+        bodymap.put("type", Arrays.asList("rectangle"));
+        bodymap.put("width",Arrays.asList("4"));
+        bodymap.put("height",Arrays.asList("7"));
+
+        Cookie myCooky =
+                new Cookie("foo", "bar");
+
+        String jsonstr = objectMapper.writeValueAsString(flight1);
+
+        String textout =
+                "expected out";
+
+        //building my packet
+        MockHttpServletRequestBuilder request1 =
+                //post test
+                post(addressin+addressvalues+querys)
+                .accept(MediaType.TEXT_PLAIN)
+                //for adding string body
+                .contentType(MediaType.TEXT_PLAIN)
+                .content(bodytext)
+                //for adding the form like body
+                //.contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                //.params(bodymap)
+                .cookie(myCooky)
+        ;
+        //shooting the request to see what happens
+        this.mvc.perform(request1)//.param("key","value")))
+                .andExpect(status().isOk()) // 200 class, things be good
+                .andExpect(content()
+                    .string(textout)) // string that should appear in page
+        ;
+    }//end test example

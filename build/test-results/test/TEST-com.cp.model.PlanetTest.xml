@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cp.model.PlanetTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-03-08T19:11:27" hostname="RGCAFCS82020.local" time="0.009">
+  <properties/>
+  <testcase name="createDefaultPlanet()" classname="com.cp.model.PlanetTest" time="0.006"/>
+  <testcase name="testGetName()" classname="com.cp.model.PlanetTest" time="0.0"/>
+  <testcase name="createDefaultPlanet2()" classname="com.cp.model.PlanetTest" time="0.0"/>
+  <testcase name="createPlanet()" classname="com.cp.model.PlanetTest" time="0.0"/>
+  <testcase name="testGetDistance()" classname="com.cp.model.PlanetTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

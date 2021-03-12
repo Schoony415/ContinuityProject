@@ -1,18 +1,34 @@
-com/week1/SolarSystem.java
- com.week1.SolarSystem
-com/week1/SpaceShip.java
- com.week1.SpaceShip
-com/week3/Application.java
- com.week3.Application
-com/week1/Captain.java
- com.week1.Captain
-com/week1/Application.java
- com.week1.Application
-com/week1/Planet.java
- com.week1.Planet
-com/week1/CrewMember.java
- com.week1.CrewMember
-com/week3/SolarSystemEndPoints.java
- com.week3.SolarSystemEndPoints
-com/week3/EndPoints.java
- com.week3.EndPoints
+com/cp/model/CrewMember.java
+ com.cp.model.CrewMember
+com/cp/controller/SolarSystemEndPoints.java
+ com.cp.controller.SolarSystemEndPoints
+com/cp/model/Planet.java
+ com.cp.model.Planet
+com/cp/HomeEP.java
+ com.cp.HomeEP
+com/cp/model/SpaceShip.java
+ com.cp.model.SpaceShip
+com/cp/controller/EndPoints.java
+ com.cp.controller.EndPoints
+com/cp/dao/SpaceShipRepository.java
+ com.cp.dao.SpaceShipRepository
+com/cp/model/Captain.java
+ com.cp.model.Captain
+com/cp/model/SolarSystem.java
+ com.cp.model.SolarSystem
+com/cp/view/Views.java
+ com.cp.view.Views
+ com.cp.view.Views$Compact
+ com.cp.view.Views$Detailed
+com/cp/FileManager.java
+ com.cp.FileManager
+com/cp/week1Application.java
+ com.cp.week1Application
+com/cp/springApplication.java
+ com.cp.springApplication
+com/cp/dao/CrewMemberRepository.java
+ com.cp.dao.CrewMemberRepository
+com/cp/controller/CrewMemberController.java
+ com.cp.controller.CrewMemberController
+com/cp/controller/SpaceShipController.java
+ com.cp.controller.SpaceShipController

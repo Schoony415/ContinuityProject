@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cp.model.SpaceShipTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-03-08T19:11:27" hostname="RGCAFCS82020.local" time="0.005">
+  <properties/>
+  <testcase name="createOneCrewShip()" classname="com.cp.model.SpaceShipTest" time="0.0"/>
+  <testcase name="createCrewShip()" classname="com.cp.model.SpaceShipTest" time="0.0"/>
+  <testcase name="FlyEasyTest()" classname="com.cp.model.SpaceShipTest" time="0.001"/>
+  <testcase name="RefuelTest()" classname="com.cp.model.SpaceShipTest" time="0.001"/>
+  <testcase name="FlyFastTest()" classname="com.cp.model.SpaceShipTest" time="0.001"/>
+  <testcase name="addCrewTest()" classname="com.cp.model.SpaceShipTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

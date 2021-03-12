@@ -1,0 +1,64 @@
+<html>
+<head>
+<style>
+body {
+background-color: #f2eecb;
+color: darkblue
+}
+</style>
+</head>
+<body>
+<p>
+Welcome to Schoony's Deep Space Simulator!
+</p>
+<hr>
+
+<ul>
+<li> / </li>
+<li> /a </li>
+<li> /week3 </li>
+<ul><li> / </li>
+    <li> /crewmember?sort=bool </li>
+    <li> /crewmember/id# </li>
+    <li>(p) /crewmemeber body:name </li>
+    <li> /spaceship/current cookie:current</li>
+    <li>(p) /spaceship/current body:spaceship </li></ul>
+<li> /crewmember </li>
+<li>(p) /crewmember body:crewmember.json </li>
+<ul><li> / </li>
+    <li> /id# </li>
+    <li>(pa) /id# body:crewmember.json </li>
+    <li>(d) /id# </li></ul>
+<li> /spaceship </li>
+<li>(p) /spaceship body:spaceship.json </li>
+<ul><li> / </li>
+    <li> /id# </li>
+    <li>(pa) /id# body:spaceship.json </li>
+    <li>(d) /id# </li>
+    <li> /current cookie:current</li>
+    <li>(p) /current body:spaceship</li></ul>
+
+
+</ul>
+
+<hr>
+
+<ul>
+<li> CrewMember </li>
+<ul><li> id </li>
+    <li> name </li>
+    <li> shipid </li>
+    <li>  morale </li>
+    <li> shirtColor </li></ul>
+<li> Spaceship </li>
+<ul><li> id </li>
+    <li> name </li>
+    <li> fuel </li>
+    <li> crewList </li></ul>
+
+
+
+</ul>
+
+</body>
+</html>

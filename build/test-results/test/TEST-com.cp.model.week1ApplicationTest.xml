@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cp.model.week1ApplicationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-08T19:11:27" hostname="RGCAFCS82020.local" time="0.006">
+  <properties/>
+  <testcase name="applicationTest()" classname="com.cp.model.week1ApplicationTest" time="0.006"/>
+  <system-out><![CDATA[--Start of ship log
+Ship: Enterprise
+Fuel: 80.0
+Crew Members: 
+-*Kirk : 90.0, i20.0
+-Spock : 90.0
+--end of ship log
+--50test--
+base variable: Spock : 50.0 || ship variable: Spock : 90.0
+equals: true
+true
+true
+true
+---testing the ref pass through to inspire troops a lazy way---
+---creating my solar system---
+[*Kirk : 90.0, i20.0, Spock : 90.0, Alex : 100.0, Bobby : 100.0, Chance : 100.0]
+---insiring troops---
+[*Kirk : 110.0, i20.0, Spock : 110.0, Alex : 120.0, Bobby : 120.0, Chance : 120.0]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
