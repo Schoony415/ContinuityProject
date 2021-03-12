@@ -4,8 +4,10 @@ import com.cp.model.CrewMember;
 import com.cp.dao.CrewMemberRepository;
 import com.cp.view.Views;
 import com.fasterxml.jackson.annotation.JsonView;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 @RestController
@@ -39,19 +41,31 @@ public class CrewMemberController {
 //Update	PATCH	/employees/{id}	.save       "update" route	Updates attributes of the employee
     @PatchMapping("/{id}")
     @JsonView(Views.Detailed.class)
-    public CrewMember updatecm(@PathVariable long id, @RequestBody CrewMember input){
+    public CrewMember updatecm(@PathVariable long id, @RequestBody HashMap<String,String> input){// @RequestBody CrewMember input){
         try{
         if(this.repository.existsById(id)){
-            CrewMember temp = this.repository.findByName(input.getName()).get();
-            if(input.getMorale() != temp.getMorale()){
-                temp.setMorale(input.getMorale());
-            }
-            if(input.getShirtColor() != temp.getShirtColor()){
-                temp.setShirtColor(input.getShirtColor());
+            CrewMember temp = this.repository.findById(id).get();
+            //old based on crewmember body
+//            if(input.getMorale() != temp.getMorale()){
+//                temp.setMorale(input.getMorale());
+//            }
+//            if(input.getShirtColor() != temp.getShirtColor()){
+//                temp.setShirtColor(input.getShirtColor());
+//            }
+            //new based on hash body
+            for(String key: input.keySet()){
+                switch (key.toLowerCase()){
+                    case "name": temp.setName(input.get(key)); break;
+                    case "morale": temp.setMorale(Float.parseFloat(input.get(key))); break;
+                    case "shirtcolor":
+                    case "shirt": temp.setShirtColor(input.get(key)); break;
+//                    case "ship":
+//                    case "shipid": temp.setShipid((com.cp.model.SpaceShip)input.get(key)); break;
+                }
             }
             return this.repository.save(temp);
         }else{
-            return savecm(input);
+            return null;//savecm(input);
         }
         }catch(IllegalArgumentException e){return null;}
     }
@@ -65,6 +79,19 @@ public class CrewMemberController {
 //
 //        return "";
 //    }
+
+//put mapping?!? just an overwrite
+    @PutMapping("/{id}")
+    @JsonView(Views.Detailed.class)
+    public CrewMember updatecm(@PathVariable long id, @RequestBody CrewMember input){
+        try {
+            input.setId(id);
+            return this.repository.save(input);
+        }catch(IllegalArgumentException e){
+            return null;
+        }
+    }
+
 //Delete	DELETE	/employees/{id}	.deleteById "delete" route	Deletes the employee
     @DeleteMapping("/{id}")
     public String killcm(@PathVariable long id){
@@ -87,12 +114,17 @@ public class CrewMemberController {
     public Iterable<CrewMember> getalld(){
         return this.repository.findAll();
     }
+    @GetMapping("/n")
+    @JsonView(Views.justNames.class)
+    public Iterable<CrewMember> getalln(){
+        return this.repository.findAll();
+    }
 
     //ROCKS FALL EVERYONE DIES! -mad DM
     @DeleteMapping("/purge")
     public String drop(){
         this.repository.deleteAll();
-        return "Rocks fall! Everyone dies..";
+        return "Rocks fall! Everyone dies.. Bye.";
     }
 
 }//end of file

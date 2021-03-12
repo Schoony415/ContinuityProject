@@ -18,7 +18,7 @@ public class CrewMember {
     long id;
     @JsonView(Views.Compact.class)
     float morale = 100.0f;
-    @JsonView(Views.Compact.class)
+    @JsonView(Views.justNames.class)
     String name = "Leeroy J";
     @JsonView(Views.Detailed.class)
     String shirtColor = "red";

@@ -31,7 +31,7 @@ public class SpaceShip {
     @JsonView(Views.Detailed.class)
     private List<CrewMember> crewList;
 
-    @JsonView(Views.Detailed.class)
+    @JsonView(Views.justNames.class)
     private String name;
 
     public SpaceShip(){
