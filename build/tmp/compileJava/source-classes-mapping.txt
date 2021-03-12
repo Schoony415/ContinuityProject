@@ -6,8 +6,10 @@ com/cp/model/Planet.java
  com.cp.model.Planet
 com/cp/HomeEP.java
  com.cp.HomeEP
-com/cp/model/SpaceShip.java
- com.cp.model.SpaceShip
+com/cp/controller/CaptainController.java
+ com.cp.controller.CaptainController
+com/cp/controller/SpaceShipController.java
+ com.cp.controller.SpaceShipController
 com/cp/controller/EndPoints.java
  com.cp.controller.EndPoints
 com/cp/dao/SpaceShipRepository.java
@@ -20,15 +22,15 @@ com/cp/view/Views.java
  com.cp.view.Views
  com.cp.view.Views$Compact
  com.cp.view.Views$Detailed
-com/cp/FileManager.java
- com.cp.FileManager
+com/cp/controller/CrewMemberController.java
+ com.cp.controller.CrewMemberController
 com/cp/week1Application.java
  com.cp.week1Application
 com/cp/springApplication.java
  com.cp.springApplication
 com/cp/dao/CrewMemberRepository.java
  com.cp.dao.CrewMemberRepository
-com/cp/controller/CrewMemberController.java
- com.cp.controller.CrewMemberController
-com/cp/controller/SpaceShipController.java
- com.cp.controller.SpaceShipController
+com/cp/FileManager.java
+ com.cp.FileManager
+com/cp/model/SpaceShip.java
+ com.cp.model.SpaceShip

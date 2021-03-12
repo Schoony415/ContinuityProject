@@ -43,7 +43,7 @@ public class SpaceShipController {
     public SpaceShip updateship(@PathVariable long id, @RequestBody SpaceShip input){
         try {
             if (this.repository.existsById(id)) {
-                SpaceShip temp = this.repository.findById(id).get();
+                SpaceShip temp = this.repository.findByName(input.getName()).get();
                 if (input.getFuel() != temp.getFuel()) {
                     temp.setFuel(input.getFuel());
                 }
@@ -64,9 +64,13 @@ public class SpaceShipController {
     //Delete	DELETE	/employees/{id}	.deleteById "delete" route	Deletes the employee
     @DeleteMapping("/{id}")
     public String killship(@PathVariable long id){
-        SpaceShip temp = this.repository.findById(id).get();
-        this.repository.deleteById(id);
-        return "("+id+") "+temp.getName()+" is gone";
+        try {
+            SpaceShip temp = this.repository.findById(id).get();
+            this.repository.deleteById(id);
+            return "(" + id + ") " + temp.getName() + " is gone";
+        }catch (IllegalArgumentException e){
+            return "could not delete";
+        }
     }
     //List	GET  	/employees  	.findAll    "index" or "list" route	Returns a list of employees
     @GetMapping("")

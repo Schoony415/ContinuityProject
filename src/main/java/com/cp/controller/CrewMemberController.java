@@ -2,6 +2,8 @@ package com.cp.controller;
 
 import com.cp.model.CrewMember;
 import com.cp.dao.CrewMemberRepository;
+import com.cp.view.Views;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -23,22 +25,24 @@ public class CrewMemberController {
 
 //CRUD(L)	Verb	Path        	JPA         Name        	Purpose
 //Create	POST	/employees  	.save       "create" route	Creates an employee
-
     @PostMapping("")
+    @JsonView(Views.Compact.class)
     public CrewMember savecm(@RequestBody CrewMember input){
         return this.repository.save(input);
     }
 //Read	GET  	/employees/{id}	.findById   "show" route	Returns a single employee
     @GetMapping("/{id}")
+    @JsonView(Views.Detailed.class)
     public Optional<CrewMember> getcm(@PathVariable long id){
         return this.repository.findById(id);
     }
 //Update	PATCH	/employees/{id}	.save       "update" route	Updates attributes of the employee
     @PatchMapping("/{id}")
+    @JsonView(Views.Detailed.class)
     public CrewMember updatecm(@PathVariable long id, @RequestBody CrewMember input){
         try{
         if(this.repository.existsById(id)){
-            CrewMember temp = this.repository.findById(id).get();
+            CrewMember temp = this.repository.findByName(input.getName()).get();
             if(input.getMorale() != temp.getMorale()){
                 temp.setMorale(input.getMorale());
             }
@@ -64,14 +68,31 @@ public class CrewMemberController {
 //Delete	DELETE	/employees/{id}	.deleteById "delete" route	Deletes the employee
     @DeleteMapping("/{id}")
     public String killcm(@PathVariable long id){
-        CrewMember temp = this.repository.findById(id).get();
-        this.repository.deleteById(id);
-        return "("+id+") "+temp.getName()+" is gone";
+        try {
+            CrewMember temp = this.repository.findById(id).get();
+            this.repository.deleteById(id);
+            return "(" + id + ") " + temp.getName() + " is gone";
+        }catch (IllegalArgumentException e){
+            return "could not delete";
+        }
     }
 //List	GET  	/employees  	.findAll    "index" or "list" route	Returns a list of employees
     @GetMapping("")
+    @JsonView(Views.Compact.class)
     public Iterable<CrewMember> getall(){
         return this.repository.findAll();
+    }
+    @GetMapping("/d")
+    @JsonView(Views.Detailed.class)
+    public Iterable<CrewMember> getalld(){
+        return this.repository.findAll();
+    }
+
+    //ROCKS FALL EVERYONE DIES! -mad DM
+    @DeleteMapping("/purge")
+    public String drop(){
+        this.repository.deleteAll();
+        return "Rocks fall! Everyone dies..";
     }
 
 }//end of file

@@ -1,11 +1,23 @@
 package com.cp.model;
 
+import com.cp.view.Views;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonRootName("*")
+@JsonPropertyOrder({"id","name","shipid","morale","inspiration","shirtColor"})
+@Entity
+@Table(name="Officers")
 public class Captain extends CrewMember {
     //private float morale=120.0f;
     //private String name="Leeroy J";
+    @JsonView(Views.Detailed.class)
     private float inspiration;
     public Captain(){
         this.morale=120.0f;
