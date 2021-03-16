@@ -13,7 +13,7 @@ public class HomeEP {
         String mystring = "Default: Hello World!";
         //path to file on my computer without the file name
         //String path = "/Users/j2153034/Documents/GitHub/spring-playground/src/main/java/com/example/springpractice";
-        String path = "src/main/resources/homepage.txt";
+        String path = "src/main/resources/homepage.html";
         String relpath = "../..";
         //just my file name with the leading slash
         String filename = "/TestText.txt";

@@ -7,8 +7,10 @@ import com.cp.view.Views;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RestController
-@RequestMapping("/Cap")
+@RequestMapping("/cap")
 public class CaptainController {
 
     private final CrewMemberRepository repository;
@@ -23,11 +25,24 @@ public class CaptainController {
     }
 
     @PostMapping("")
+    @JsonView(Views.Compact.class)
     public Captain postcap(@RequestBody Captain input){
         return this.repository.save(input);
     }
-//    @GetMapping("")
-//    public Iterable<Captain> getall(){
-//        return this.repository.findAll();
-//    }
+
+    @GetMapping("")
+    @JsonView(Views.Compact.class)
+    public Iterable<Captain> getall(){
+        Iterable<CrewMember> cmlist = new ArrayList<>();
+        ArrayList<Captain> offlist = new ArrayList<>();
+        cmlist = this.repository.findAll();
+        for(CrewMember pawn:cmlist){
+            if(pawn instanceof Captain){
+                offlist.add((Captain) pawn);
+            }
+        }
+        return offlist;
+    }
+
+
 }

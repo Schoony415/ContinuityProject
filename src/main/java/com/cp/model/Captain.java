@@ -10,10 +10,10 @@ import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
-@JsonRootName("*")
-@JsonPropertyOrder({"id","name","shipid","morale","inspiration","shirtColor"})
 @Entity
 @Table(name="Officers")
+@JsonRootName(value = "Cap", namespace="Cap")
+@JsonPropertyOrder({"id","name","shipid","morale","inspiration","shirtColor"})
 public class Captain extends CrewMember {
     //private float morale=120.0f;
     //private String name="Leeroy J";

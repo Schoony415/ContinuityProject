@@ -1,5 +1,7 @@
 package com.cp.model;
+
 import com.cp.view.Views;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -9,6 +11,8 @@ import java.util.List;
 
 //https://en.wikibooks.org/wiki/Java_Persistence/ManyToOne
 //many to one implementation
+//fixing one to many recursion overflow
+//https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
 
 @JsonPropertyOrder({"id","name","fuel","crewList"})
 @Entity
@@ -23,12 +27,14 @@ public class SpaceShip {
     private float fuel=100.0f;
     //a crewList property as an ArrayList containing CrewMember, defaulting to an empty list initialized as a new instance of a SpaceShip
 
+    @JsonView(Views.Detailed.class)
     // The 'mappedBy = "owner"' attribute specifies that
     // the 'private Employee owner;' field in Phone owns the
     // relationship (i.e. contains the foreign key for the query to
     // find all phones for an employee.)
-    @OneToMany(mappedBy = "shipid")
-    @JsonView(Views.Detailed.class)
+    @OneToMany(mappedBy = "shipname", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<CrewMember> crewList;
 
     @JsonView(Views.justNames.class)

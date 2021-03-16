@@ -1,13 +1,12 @@
 package com.cp.controller;
 
+import com.cp.dao.SpaceShipRepository;
 import com.cp.model.CrewMember;
 import com.cp.dao.CrewMemberRepository;
 import com.cp.view.Views;
 import com.fasterxml.jackson.annotation.JsonView;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -16,9 +15,11 @@ import java.util.Optional;
 public class CrewMemberController {
 
     private final CrewMemberRepository repository;
+    private final SpaceShipRepository ssrepo;
 
-    public CrewMemberController(CrewMemberRepository repository) {
+    public CrewMemberController(CrewMemberRepository repository, SpaceShipRepository ssrepo) {
         this.repository = repository;
+        this.ssrepo = ssrepo;
     }
 
     @GetMapping("/")
@@ -70,16 +71,25 @@ public class CrewMemberController {
         }
         }catch(IllegalArgumentException e){return null;}
     }
-//    @PatchMapping("/board")
-//    public String cmboardship(@RequestBody long shipid, @RequestBody long crewid){
-//        Optional<CrewMember> temp = this.repository.findById(crewid);
-//        if(temp.isEmpty()){return "This crew member doesn't exist";}
-//        this.repository.deleteById(crewid);
-//        //com.cp.model.SpaceShip ss = com.cp.controller.SpaceShipController.shipboardcm(shipid);
-//
-//
-//        return "";
-//    }
+    @PatchMapping("/board")
+    public String cmboardship(@RequestBody Map<String,String> input){//@RequestBody String shipid, @RequestBody String crewid){
+        try {
+            Optional<CrewMember> temp = this.repository.findById(Long.parseLong(input.get("crewid")));
+            if (temp.isEmpty()) {
+                return "This crew member doesn't exist";
+            }
+            Optional<com.cp.model.SpaceShip> myship = this.ssrepo.findById(Long.parseLong(input.get("shipid")));
+            if (myship.isEmpty()) {
+                return "This ship doesn't exist";
+            }
+            temp.get().setShipname(myship.get());
+            this.repository.save(temp.get());
+            return "all good?";
+
+        }catch(IllegalArgumentException e){return "nope";}
+        //catch (NumberFormatException e){return "your numbers suck";}
+        //return "";
+    }
 
 //put mapping?!? just an overwrite
     @PutMapping("/{id}")
@@ -126,6 +136,11 @@ public class CrewMemberController {
     public String drop(){
         this.repository.deleteAll();
         return "Rocks fall! Everyone dies.. Bye.";
+    }
+
+    @GetMapping("/{id}/ship")
+    public String getship(@PathVariable long id){
+        return this.repository.findById(id).get().getShipname().toString();
     }
 
 }//end of file

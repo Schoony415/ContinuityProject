@@ -1,5 +1,7 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<title>SpaceCommand</title>
 <style>
 body {
 background-color: #f2eecb;
@@ -26,17 +28,29 @@ Welcome to Schoony's Deep Space Simulator!
 <li> /crewmember </li>
 <li>(p) /crewmember body:crewmember.json </li>
 <ul><li> / </li>
+    <li> /d -detailed list </li>
+    <li> /n -just names </li>
     <li> /id# </li>
-    <li>(pa) /id# body:crewmember.json </li>
-    <li>(d) /id# </li></ul>
+    <li>(pa) /id# body:mapped fields of crewmember </li>
+    <li>(pu) /id# body:crewmember.json </li>
+    <li> /id#/ship </li>
+    <li>(d) /id# </li>
+    <li>(d) /purge </li>
+    <li>(pa) /board body:mapped shipid,crewid </li></ul>
 <li> /spaceship </li>
 <li>(p) /spaceship body:spaceship.json </li>
 <ul><li> / </li>
+    <li> /d -detailed list </li>
+    <li> /n -just names </li>
     <li> /id# </li>
-    <li>(pa) /id# body:spaceship.json </li>
+    <li>(pa) /id# body:mapped fields of spaceship </li>
+    <li>(pu) /id# body:spaceship.json </li>
     <li>(d) /id# </li>
     <li> /current cookie:current</li>
     <li>(p) /current body:spaceship</li></ul>
+<li> /cap </li>
+<li>(p) /cap body:captain.json </li>
+<ul><li> / </li></ul>
 
 
 </ul>

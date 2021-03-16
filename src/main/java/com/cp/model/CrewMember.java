@@ -1,14 +1,13 @@
 package com.cp.model;
 
-import com.cp.controller.SpaceShipController;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.persistence.*;
 import com.cp.view.Views;
 
-@JsonPropertyOrder({"id","name","shipid","morale","shirtColor"})
+@JsonPropertyOrder({"id","name","shipname","morale","shirtColor"})
 @Entity
 @Table(name="CrewMember")
 public class CrewMember {
@@ -23,13 +22,17 @@ public class CrewMember {
     @JsonView(Views.Detailed.class)
     String shirtColor = "red";
 
+
+    @JsonView(Views.Detailed.class)
     // Specifies the PHONE table does not contain an owner column, but
     // an OWNER_ID column with a foreign key. And creates a join to
     // lazily fetch the owner
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="crewList")
-    @JsonView(Views.Detailed.class)
-    SpaceShip shipid = null;
+    @ManyToOne(fetch=FetchType.LAZY)//, cascade = CascadeType.ALL) //when you delete with cascade it also kills my spaceship
+    @JoinColumn(name="ship_id")
+    @JsonBackReference
+    SpaceShip shipname = null;
+
+    //long shipnumber = shipname.id;
 
     public CrewMember(){
         //this.morale=100.0f;
@@ -64,18 +67,27 @@ public class CrewMember {
         this.shirtColor = shirtColor;
     }
 
-    public SpaceShip getShipid() {
-        return shipid;
+    public SpaceShip getShipname() {
+        return shipname;
     }
 
-    public void setShipid(SpaceShip shipid) {
-        this.shipid = shipid;
+    public void setShipname(SpaceShip shipname) {
+        this.shipname = shipname;
     }
 
     public String getName(){return name;}
     public float getMorale(){return morale;}
     //public void setMorale(float imorale){morale=imorale;}
     public void changeMorale(float imorale){morale+=imorale;}
+
+//    public long getShipnumber() {
+//        return shipnumber;
+//    }
+//
+//    public void setShipnumber(long shipnumber) {
+//        this.shipnumber = shipnumber;
+//    }
+
     //Overwrite-----------
     public String toString(){return (""+name+" : "+morale);}
     public boolean equals( CrewMember comp){
