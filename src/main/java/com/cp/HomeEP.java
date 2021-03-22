@@ -10,15 +10,17 @@ public class HomeEP {
     public String home(){
         viewcount++;
         System.out.println("Dear Diary: Look mom! Got a view!:"+viewcount);
+        /*
         String mystring = "Default: Hello World!";
         //path to file on my computer without the file name
         //String path = "/Users/j2153034/Documents/GitHub/spring-playground/src/main/java/com/example/springpractice";
-        String path = "src/main/resources/homepage.html";
+        String path = "src/main/resources/homepage_old.html";
         String relpath = "../..";
         //just my file name with the leading slash
         String filename = "/TestText.txt";
         mystring = FileManager.readFileAsString(path);
-
+        */
+        String mystring = pageBuilder.homePage();
         return mystring;
         //return "Hello Baby";
     }
