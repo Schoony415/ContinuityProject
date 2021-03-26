@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class week1Application {
 
-    public static void main(String... args) {
+    public static void week1main(String... args) {
         ///*
         Captain myCaptain = new Captain("Kirk");
         //System.out.println(myCaptain);

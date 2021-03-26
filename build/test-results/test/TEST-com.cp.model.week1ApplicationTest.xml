@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.cp.model.week1ApplicationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-08T19:11:27" hostname="RGCAFCS82020.local" time="0.006">
+<testsuite name="com.cp.model.week1ApplicationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-26T13:12:16" hostname="RGCAFCS82020.local" time="0.01">
   <properties/>
-  <testcase name="applicationTest()" classname="com.cp.model.week1ApplicationTest" time="0.006"/>
+  <testcase name="applicationTest()" classname="com.cp.model.week1ApplicationTest" time="0.01"/>
   <system-out><![CDATA[--Start of ship log
 Ship: Enterprise
 Fuel: 80.0

@@ -7,6 +7,6 @@ class week1ApplicationTest {
 
     @Test
     void applicationTest() {
-        week1Application.main();
+        week1Application.week1main();
     }
 }
