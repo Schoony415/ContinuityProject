@@ -1,10 +1,30 @@
 package com.cp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+
+@Entity
+@Getter @Setter
+@Table(name="Planet")
 public class Planet {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long id = 0;
     //a name property as a string that is set in its constructor
     private String name;
     //a distanceToNext property as an int that is set in its constructor
     private int distanceToNext;
+    @ManyToOne(fetch=FetchType.LAZY)//, cascade = CascadeType.ALL) //when you delete with cascade it also kills my spaceship
+    @JoinColumn(name="sphere")
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonBackReference
+    SolarSystemThin ss = null;
+
+
     public Planet(){
         this.name = "Earth";
         this.distanceToNext=1;

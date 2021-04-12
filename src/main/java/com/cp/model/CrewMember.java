@@ -42,6 +42,12 @@ public class CrewMember {
         //this.morale=100.0f;
         this.name = iname;
     }
+    public CrewMember(String iname, float imorale, String ishirt){
+        this(iname);
+        this.morale = imorale;
+        this.shirtColor = ishirt;
+
+    }
 
     public long getId() {
         return id;

@@ -1,17 +1,17 @@
 com/cp/controller/Week3ControllerTest.java
  com.cp.controller.Week3ControllerTest
+com/cp/model/PlanetTest.java
+ com.cp.model.PlanetTest
+com/cp/week1ApplicationTests.java
+ com.cp.week1ApplicationTests
 com/cp/controller/CMCTest.java
  com.cp.controller.CMCTest
 com/cp/model/week1ApplicationTest.java
  com.cp.model.week1ApplicationTest
-com/cp/model/PlanetTest.java
- com.cp.model.PlanetTest
+com/cp/springApplicationTests.java
+ com.cp.springApplicationTests
 com/cp/controller/SSWeek3ControllerTest.java
  com.cp.controller.SSWeek3ControllerTest
-com/cp/week1ApplicationTests.java
- com.cp.week1ApplicationTests
-com/cp/CpApplicationTests.java
- com.cp.CpApplicationTests
 com/cp/model/CrewMemberTest.java
  com.cp.model.CrewMemberTest
 com/cp/model/SolarSystemTest.java

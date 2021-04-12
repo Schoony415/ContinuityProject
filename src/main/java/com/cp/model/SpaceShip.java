@@ -23,6 +23,7 @@ public class SpaceShip {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     @JsonView(Views.Detailed.class)
+    @Column(precision = 5)
     //a fuel property as a float, defaulting to 100.0f
     private float fuel=100.0f;
     //a crewList property as an ArrayList containing CrewMember, defaulting to an empty list initialized as a new instance of a SpaceShip

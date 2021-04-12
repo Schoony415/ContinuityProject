@@ -1,7 +1,15 @@
 package com.cp;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.lang.reflect.Array;
+import java.util.Optional;
 
 @RestController
 public class HomeEP {
@@ -25,9 +33,19 @@ public class HomeEP {
         //return "Hello Baby";
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")//why does this have to be here?
     @GetMapping("/a")
-    public String home2(){
-        return "a";
+    public testobj home2(){
+        System.out.println("a");
+        return new testobj("test a",1);
     }
 
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Setter
+    @Getter
+    class testobj{
+        String name;
+        int number;
+    }
 }

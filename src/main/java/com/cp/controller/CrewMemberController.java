@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
+//@CrossOrigin("http://localhost:3000")
 @RequestMapping("/crewmember")
 public class CrewMemberController {
 
@@ -74,11 +75,13 @@ public class CrewMemberController {
     @PatchMapping("/board")
     public String cmboardship(@RequestBody Map<String,String> input){//@RequestBody String shipid, @RequestBody String crewid){
         try {
-            Optional<CrewMember> temp = this.repository.findById(Long.parseLong(input.get("crewid")));
+            Optional<CrewMember> temp =
+                    this.repository.findById(Long.parseLong(input.get("crewid")));
             if (temp.isEmpty()) {
                 return "This crew member doesn't exist";
             }
-            Optional<com.cp.model.SpaceShip> myship = this.ssrepo.findById(Long.parseLong(input.get("shipid")));
+            Optional<com.cp.model.SpaceShip> myship =
+                    this.ssrepo.findById(Long.parseLong(input.get("shipid")));
             if (myship.isEmpty()) {
                 return "This ship doesn't exist";
             }
